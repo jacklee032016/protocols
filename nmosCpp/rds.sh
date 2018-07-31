@@ -2,7 +2,7 @@
 
 PWD=`pwd`
 NMOS_ROOT_HOME=$PWD
-RDS_EXE=$NMOS_ROOT_HOME/nmos/Linux.bin.X86/usr/bin/nmRds
+RDS_EXE=$NMOS_ROOT_HOME/nmosCpp/Linux.bin.X86/usr/bin/nmRds
 
 #default host_address:127.0.0.1
 

@@ -4,7 +4,7 @@
 
 PWD=`pwd`
 NMOS_ROOT_HOME=$PWD
-#NODE_EXE=$NMOS_ROOT_HOME/nmos/Linux.bin.X86/usr/bin/nmNode
+#NODE_EXE=$NMOS_ROOT_HOME/nmosCpp/Linux.bin.X86/usr/bin/nmNode
 NODE_EXE=./nmNode
 
 $NODE_EXE \

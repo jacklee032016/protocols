@@ -15,10 +15,27 @@ SDK of REST API based on C++
 
 
 nmosCpp
-----------
+--------
 
 * library for MDNS, nmos;
 * Node of NMOS;
 * RDS of NMOS;
+
+
+Usage
+=====
+
+Build
+-----
+
+In directory of cpprestadk, run 'make';
+In directory of nmosCpp, run 'make';
+
+
+Run
+---
+
+source init.sh
+./rds or ./nodes.sh
 
 
