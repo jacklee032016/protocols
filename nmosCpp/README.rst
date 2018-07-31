@@ -28,8 +28,8 @@ Usage
 Build
 -----
 
-In directory of cpprestadk, run 'make';
-In directory of nmosCpp, run 'make';
+* In directory of cpprestadk, run 'make';
+* In directory of nmosCpp, run 'make';
 
 
 Run
