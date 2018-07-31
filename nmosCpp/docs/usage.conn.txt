@@ -1,0 +1,126 @@
+
+
+Connection API usage, May.15th, 2018
+	Port: 14000
+Connection API for device, only node is device, RDS is not;
+
+Node
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/ | python -mjson.tool 
+[
+    "bulk/",
+    "single/"
+]
+
+bulk
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/bulk | python -mjson.tool 
+
+[
+    "senders/",
+    "receivers/"
+]
+
+senders
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/bulk/senders | python -mjson.tool 
+405
+
+receivers
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/bulk/receivers | python -mjson.tool 
+405
+
+
+single
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single | python -mjson.tool 
+[
+    "senders/",
+    "receivers/"
+]
+
+
+senders
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/senders | python -mjson.tool 
+[
+    "a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5/"
+]
+
+senderID{a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5}
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/senders/a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5 | python -mjson.tool 
+[
+    "constraints/",
+    "staged/",
+    "active/",
+    "transportfile/"
+]
+
+constraints
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/senders/a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5/constraints/ | python -mjson.tool 
+{
+    "code": 501,
+    "error": "Not Implemented",
+    "debug": null
+}
+
+staged
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/senders/a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5/staged/ | python -mjson.tool 
+{
+    "code": 501,
+    "error": "Not Implemented",
+    "debug": null
+}
+
+active
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/senders/a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5/active/ | python -mjson.tool 
+{
+    "code": 501,
+    "error": "Not Implemented",
+    "debug": null
+}
+
+transportfile
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/senders/a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5/transportfile/ | python -mjson.tool 
+v=0
+o=- 37 42 IN IP4 127.0.0.1 
+s= 
+t=0 0
+
+Note json format
+
+receivers
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/receivers | python -mjson.tool 
+[
+    "f6e32926-a5ba-4e48-88f2-e305c48eb6b1/"
+]
+
+receiverID{f6e32926-a5ba-4e48-88f2-e305c48eb6b1}
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/receivers/f6e32926-a5ba-4e48-88f2-e305c48eb6b1 | python -mjson.tool 
+[
+    "constraints/",
+    "staged/",
+    "active/"
+]
+
+
+constraints
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/receivers/f6e32926-a5ba-4e48-88f2-e305c48eb6b1/constraints | python -mjson.tool 
+{
+    "code": 501,
+    "error": "Not Implemented",
+    "debug": null
+}
+
+staged
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/receivers/f6e32926-a5ba-4e48-88f2-e305c48eb6b1/staged | python -mjson.tool 
+{
+    "code": 501,
+    "error": "Not Implemented",
+    "debug": null
+}
+
+active
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14000/x-nmos/connection/v1.0/single/receivers/f6e32926-a5ba-4e48-88f2-e305c48eb6b1/active | python -mjson.tool 
+{
+    "code": 501,
+    "error": "Not Implemented",
+    "debug": null
+}
+
+

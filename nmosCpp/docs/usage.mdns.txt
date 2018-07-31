@@ -1,0 +1,9 @@
+
+
+MDNS service and resolve
+
+avahi-publish-address -R localhost.localdomain.local. 192.168.166.1
+
+avahi-resolve -n localhost.localdomain.local.
+
+avahi-resolve -n SdiOverIP-767

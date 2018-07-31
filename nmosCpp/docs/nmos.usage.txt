@@ -1,0 +1,95 @@
+
+
+Access APIs of NMOS Node:
+	Node: 12001
+	curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12001/x-nmos/node/v1.2  | python -mjson.tool 
+	[
+	  "self/",
+	  "devices/",
+	  "sources/",
+	  "flows/",
+	  "senders/",
+	  "receivers/"
+	]
+
+	Connection:14001.     Connection management API???
+	curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:14001/x-nmos/connection/v1.0
+	[
+	  "bulk/",
+	  "single/"
+	]
+
+Following APIs are not standard NMOS API
+	Logging:11001
+	curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:11001/ | jq
+	[
+  	"log/"
+	]
+	
+	Setting:10001
+	curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:10001/ 
+	[
+  	"settings/"
+	]
+
+	{
+	  "admin_port": 13001,
+	  "connection_port": 14001,
+	  "host_address": "127.0.0.1",
+	  "host_name": "localhost.localdomain",
+	  "logging_level": -40,
+	  "logging_port": 11001,
+	  "node_port": 12001,
+	  "registration_port": 8235,
+	  "registry_address": "127.0.0.1",
+	  "settings_port": 10001
+	}
+
+
+	
+Access NMOS RDS:
+	curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:8236/x-nmos/node/v1.2  | python -mjson.tool 
+
+
+Sample JSON command in Linux:
+
+# one line format:
+./nmos/Linux.bin.X86/usr/bin/nmNode	'{"logging_level": -40, "registration_port": 8235, "settings_port": 10000, "logging_port": 11000, "node_port": 12000, "admin_port": 13000, "connection_port": 14000 }'
+
+
+# multiple line format:
+
+./nmos/Linux.bin.X86/usr/bin/nmNode	\
+  '{"logging_level": -40, 
+  "registration_port": 8235, 
+  "settings_port": 10000, 
+  "logging_port": 11000, 
+  "node_port": 12000, 
+  "admin_port": 13000, 
+  "connection_port": 14000 }'
+
+
+Configuration:
+
+RDS, Register & Discovery System
+		admin			: 3208
+		setting		: 3209
+		mdns			: 3214
+		logging		: 5106
+		
+		register	: 8235
+		node			: 8236
+		query			: 8870
+		query_ws	:	8871
+
+
+
+Node:
+		Setting		:	10000
+		Logging		: 11000
+		Node			: 12000
+		Admin			: 13000
+		Connect		: 14000
+
+
+		

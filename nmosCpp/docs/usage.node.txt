@@ -1,0 +1,186 @@
+
+
+Node API usage, May.15th, 2018
+	Port: 12000
+
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/ | python -mjson.tool 
+[
+    "self/",
+    "devices/",
+    "sources/",
+    "flows/",
+    "senders/",
+    "receivers/"
+]
+
+
+Self
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/self | python -mjson.tool 
+{
+    "api": {
+        "endpoints": [
+            {
+                "host": "127.0.0.1",
+                "port": 12000,
+                "protocol": "http"
+            }
+        ],
+        "versions": [
+            "v1.0",
+            "v1.1",
+            "v1.2"
+        ]
+    },
+    "caps": {},
+    "clocks": [],
+    "description": "localhost.localdomain",
+    "hostname": "localhost.localdomain",
+    "href": "http://127.0.0.1:12000/",
+    "id": "f1b4d006-fb5a-4d0e-8bf8-f546b85f5836",   #Node ID
+    "interfaces": [],
+    "label": "localhost.localdomain",
+    "services": [],
+    "tags": {},
+    "version": "1526416631:281040736"
+}
+
+Sources
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/sources/ | python -mjson.tool 
+[
+    {
+        "caps": {},
+        "clock_name": null,
+        "description": "localhost.localdomain",
+        "device_id": "bf9b0d61-aee9-4362-a6c4-27d8985f24da",
+        "format": "urn:x-nmos:format:video",
+        "grain_rate": {
+            "denominator": 1,
+            "numerator": 50
+        },
+        "id": "dc85a46d-9021-4e66-9b7d-e1ee5ffc9577",  # source ID
+        "label": "localhost.localdomain",
+        "parents": [],
+        "tags": {},
+        "version": "1526416631:282510369"
+    }
+]
+
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/sources/dc85a46d-9021-4e66-9b7d-e1ee5ffc9577 | python -mjson.tool 
+{
+    "caps": {},
+    "clock_name": null,
+    "description": "localhost.localdomain",
+    "device_id": "bf9b0d61-aee9-4362-a6c4-27d8985f24da",
+    "format": "urn:x-nmos:format:video",
+    "grain_rate": {
+        "denominator": 1,
+        "numerator": 50
+    },
+    "id": "dc85a46d-9021-4e66-9b7d-e1ee5ffc9577",
+    "label": "localhost.localdomain",
+    "parents": [],
+    "tags": {},
+    "version": "1526416631:282510369"
+}
+
+
+Flows
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/flows/ | python -mjson.tool 
+[
+    {
+        "colorspace": "BT709",
+        "description": "localhost.localdomain",
+        "device_id": "bf9b0d61-aee9-4362-a6c4-27d8985f24da",
+        "format": "urn:x-nmos:format:video",
+        "frame_height": 1080,
+        "frame_width": 1920,
+        "grain_rate": {
+            "denominator": 1,
+            "numerator": 50
+        },
+        "id": "daedb4b4-9e1c-4b8f-a50d-375b1ad226f5",
+        "interlace_mode": "progressive",
+        "label": "localhost.localdomain",
+        "parents": [],
+        "source_id": "dc85a46d-9021-4e66-9b7d-e1ee5ffc9577",
+        "tags": {},
+        "transfer_characteristic": "SDR",
+        "version": "1526416631:282598080"
+    }
+]
+
+Devices
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/devices/ | python -mjson.tool 
+[
+    {
+        "controls": [
+            {
+                "href": "http://127.0.0.1:14000/x-nmos/connection/v1.0",
+                "type": "urn:x-nmos:control:sr-ctrl/v1.0"
+            }
+        ],
+        "description": "localhost.localdomain",
+        "id": "bf9b0d61-aee9-4362-a6c4-27d8985f24da",
+        "label": "localhost.localdomain",
+        "node_id": "f1b4d006-fb5a-4d0e-8bf8-f546b85f5836",
+        "receivers": [
+            "f6e32926-a5ba-4e48-88f2-e305c48eb6b1"
+        ],
+        "senders": [
+            "a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5"
+        ],
+        "tags": {},
+        "type": "urn:x-nmos:device:generic",
+        "version": "1526416631:282393744"
+    }
+]
+
+Senders
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/senders/ | python -mjson.tool 
+[
+    {
+        "description": "localhost.localdomain",
+        "device_id": "bf9b0d61-aee9-4362-a6c4-27d8985f24da",
+        "flow_id": "daedb4b4-9e1c-4b8f-a50d-375b1ad226f5", 
+        "id": "a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5",  # sender ID
+        "interface_bindings": [],
+        "label": "localhost.localdomain",
+        "manifest_href": "http://127.0.0.1:14000/x-nmos/connection/v1.0/single/senders/a8a213f0-7e6d-471c-9d08-2a9b49cdd2b5/transportfile",
+        "subscription": {
+            "active": 0,
+            "receiver_id": null
+        },
+        "tags": {},
+        "transport": "urn:x-nmos:transport:rtp",
+        "version": "1526416631:282752604"
+    }
+]
+
+Receivers
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/receivers/ | python -mjson.tool 
+[
+    {
+        "caps": {
+            "media_types": [
+                "video/raw"
+            ]
+        },
+        "description": "localhost.localdomain",
+        "device_id": "bf9b0d61-aee9-4362-a6c4-27d8985f24da",
+        "format": "urn:x-nmos:format:video",
+        "id": "f6e32926-a5ba-4e48-88f2-e305c48eb6b1", #receiver ID
+        "interface_bindings": [],
+        "label": "localhost.localdomain",
+        "subscription": {
+            "active": 0,
+            "sender_id": null
+        },
+        "tags": {},
+        "transport": "urn:x-nmos:transport:rtp",
+        "version": "1526416631:282858430"
+    }
+]
+
+target(PUT)
+curl -H "Content-Type: application/json" -X GET -d '{"username":"xyz","password":"xyz"}' http://localhost:12000/x-nmos/node/v1.2/target/ | python -mjson.tool 
+
